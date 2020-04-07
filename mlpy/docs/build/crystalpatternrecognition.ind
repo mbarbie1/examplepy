@@ -1,0 +1,61 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter C
+  \item \spxentry{compute\_lindemann\_parameter()}\spxextra{in module mlpy.patterns}, \hyperpage{7}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{detection}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{detection()}\spxextra{in module mlpy.detection}, \hyperpage{5}
+  \item \spxentry{detection\_cht()}\spxextra{in module mlpy.detection}, \hyperpage{5}
+  \item \spxentry{detection\_laplace()}\spxextra{in module mlpy.detection}, \hyperpage{5}
+  \item \spxentry{draw\_circles()}\spxextra{in module mlpy.plots}, \hyperpage{3}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{get\_metadata()}\spxextra{in module mlpy.mio}, \hyperpage{9}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{mio}
+    \subitem \spxentry{module}, \hyperpage{9}
+  \item \spxentry{mlpy}
+    \subitem \spxentry{module}, \hyperpage{1}
+  \item \spxentry{mlpy.detection}
+    \subitem \spxentry{module}, \hyperpage{3}
+  \item \spxentry{mlpy.mio}
+    \subitem \spxentry{module}, \hyperpage{7}
+  \item \spxentry{mlpy.patterns}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{mlpy.plots}
+    \subitem \spxentry{module}, \hyperpage{1}
+  \item \spxentry{module}
+    \subitem \spxentry{detection}, \hyperpage{5}
+    \subitem \spxentry{mio}, \hyperpage{9}
+    \subitem \spxentry{mlpy}, \hyperpage{1}
+    \subitem \spxentry{mlpy.detection}, \hyperpage{3}
+    \subitem \spxentry{mlpy.mio}, \hyperpage{7}
+    \subitem \spxentry{mlpy.patterns}, \hyperpage{5}
+    \subitem \spxentry{mlpy.plots}, \hyperpage{1}
+    \subitem \spxentry{patterns}, \hyperpage{7}
+    \subitem \spxentry{plots}, \hyperpage{3}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{patterns}
+    \subitem \spxentry{module}, \hyperpage{7}
+  \item \spxentry{plot\_lindemann\_histogram()}\spxextra{in module mlpy.plots}, \hyperpage{3}
+  \item \spxentry{plots}
+    \subitem \spxentry{module}, \hyperpage{3}
+  \item \spxentry{print\_metadata()}\spxextra{in module mlpy.mio}, \hyperpage{9}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{read\_frames()}\spxextra{in module mlpy.mio}, \hyperpage{9}
+
+\end{sphinxtheindex}
