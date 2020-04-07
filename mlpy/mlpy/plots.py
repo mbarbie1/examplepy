@@ -42,7 +42,7 @@ def draw_circles(circle_list, im, radius):
     print(' ')
     if circle_list is not None:
         circles = np.uint16(np.around(circle_list))
-        for circle in circles[0, :]:
+        for circle in circles:
             center = (circle[0], circle[1])
             # circle center
             #cv.circle(im, center, 1, (0, 0, 255), 1)

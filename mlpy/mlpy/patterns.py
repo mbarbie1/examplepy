@@ -36,7 +36,7 @@ def compute_lindemann_parameter(circle_list, radius):
     :param radius: The radius describing the size of the local region around the point/particle of interest
     :return: None
     """
-    circles = np.asarray(circle_list[0])
+    circles = np.asarray(circle_list)
     points = circles[:, 0:2]
     dist = distance.cdist(points, points, 'euclidean')
     n_points = dist.shape[0]

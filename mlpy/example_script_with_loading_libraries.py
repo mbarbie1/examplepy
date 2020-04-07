@@ -72,7 +72,7 @@ def process(data_folder, file_path, frame_list, options):
     for i_param in range(0, n_param):
         saturation_perc = saturation_perc_list[i_param]
         im = np.copy(orig)
-        circle_list, im_gray, im_norm, im_blur = detection.detection(im, 'CHT', saturation_perc, radius=options.radius_detection)
+        circle_list, im_gray, im_norm, im_blur = detection.detection(im, options.detection_method, saturation_perc, radius=options.radius_detection, is_dark=options.is_dark)
         im_circles = np.copy(orig)
         plots.draw_circles(circle_list, im_circles, radius=options.radius_show)
         lindemann_list = pr.compute_lindemann_parameter(circle_list, 20*options.radius)
@@ -82,15 +82,15 @@ def process(data_folder, file_path, frame_list, options):
             # Matplotlib will show four images: the grey-valued image of the original, the one after contrast stretching,
             #   the smoothed out version of the latter, and the original image with the resulting particle positions as
             #   circles.
-            fig, ax = plt.subplots(ncols=4, nrows=1, figsize=(16, 6))
-            ax[0].imshow(im_gray, cmap=plt.cm.gray)
-            ax[1].imshow(im_norm, cmap=plt.cm.gray)
-            ax[2].imshow(im_blur, cmap=plt.cm.gray)
-            ax[3].imshow(im_circles, cmap=plt.cm.gray)
+            fig, ax = plt.subplots(ncols=2, nrows=2, figsize=(16, 8))
+            ax[0, 0].imshow(im_gray, cmap=plt.cm.gray)
+            ax[1, 0].imshow(im_norm, cmap=plt.cm.gray)
+            ax[0, 1].imshow(im_blur, cmap=plt.cm.gray)
+            ax[1, 1].imshow(im_circles, cmap=plt.cm.gray)
             plt.show(block=False)
         elif options.show_method == 'OpenCV':
             # Show the annotated image using OpenCV instead, only the last image is shown. Press a key to continue
-            cv.imshow("original with circles: saturation parameter = " + str(saturation_perc), im_circles )
+            cv.imshow("original with circles: saturation parameter = " + str(saturation_perc), im_circles)
             cv.waitKey(0)
 
     # Block until plots are closed
@@ -103,19 +103,34 @@ def get_parameters():
     :return: The parameters in the options argparse class
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_folder", help="training processing data path", default="/Users/mbarbier/Documents/data/test_data_camera/2020_03_02_fluorescent")
-    parser.add_argument("--output_folder", help="output directory", default="./output")
-    parser.add_argument("--file_name", help="File name of the video", default="JPEGcomp.avi")
-    parser.add_argument("--video_index_first", help="First frame index", default=0, type=int)
-    parser.add_argument("--video_index_last", help="Last frame index", default=5, type=int)
-    parser.add_argument("--show_method_index", help="Method to use to show the detected particles [0:'Matplotlib', 1:'OpenCV']", default=0, type=int)
-    parser.add_argument("--radius_detection", help="Radius used for the detection method, can be slightly different from the real radius and depends on the detection method", default=12, type=int)
-    parser.add_argument("--radius_show", help="Radius shown on the annotated images", default=8, type=int)
-    parser.add_argument("--radius", help="Real radius of the particles (in pixels)", default=6.25, type=float)
+    parser.add_argument("--data_folder", default="/Users/mbarbier/Documents/data/test_data_camera/2020_03_02_fluorescent",
+                        help="training processing data path")
+    parser.add_argument("--output_folder", default="./output",
+                        help="output directory")
+    parser.add_argument("--file_name", default="JPEGcomp.avi",
+                        help="File name of the video")
+    parser.add_argument("--video_index_first", default=0, type=int,
+                        help="First frame index")
+    parser.add_argument("--video_index_last",
+                        help="Last frame index", default=5, type=int)
+    parser.add_argument("--detection_method_index",
+                        help="Method to detect particles [0:'CHT', 1:'Laplace']", default=1, type=int)
+    parser.add_argument("--show_method_index",
+                        help="Method to use to show the detected particles [0:'Matplotlib', 1:'OpenCV']", default=0, type=int)
+    parser.add_argument("--is_dark", default=1, type=int,
+                        help="Dark or bright particles [1: dark, 0: bright]")
+    parser.add_argument("--radius_detection", default=12, type=int,
+                        help="Radius used for the detection method, can be slightly different from the real radius and depends on the detection method")
+    parser.add_argument("--radius_show", default=8, type=int,
+                        help="Radius shown on the annotated images")
+    parser.add_argument("--radius", default=6.25, type=float,
+                        help="Real radius of the particles (in pixels)")
     options = parser.parse_args()
     options.frame_list = range(options.video_index_first, options.video_index_last+1)
     options.file_path = os.path.join(options.data_folder, options.file_name)
     options.show_method_list = ['Matplotlib', 'OpenCV']
+    options.detection_method_list = ['CHT', 'Laplace']
+    options.detection_method = options.detection_method_list[options.detection_method_index]
     options.show_method = options.show_method_list[options.show_method_index]
 
     return options

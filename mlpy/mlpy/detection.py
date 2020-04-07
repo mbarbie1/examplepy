@@ -18,7 +18,7 @@ import sys
 import os
 import numpy as np
 import cv2 as cv
-from skimage import io, filters, measure, color, exposure
+from skimage import io, filters, feature, img_as_float, measure, color, exposure
 import sys
 import ffmpeg
 import json
@@ -76,21 +76,41 @@ def detection_cht(im, radius):
                                   param2=30,
                                   minRadius=min_radius,
                                   maxRadius=max_radius)
+    circle_list = circle_list[0, :]
+
     return circle_list, im_blur
 
 
 def detection_laplace(im, radius):
     """
+    Detect particles with a Laplace based spot detector
+    (There are also blob detectors available in scikit-image but I was not successful in using them:
+    DoG = Difference of Gaussian, LoG = Laplacian of Gaussian, DoH = Determinant of Hessian)
+    TODO: we need an extra parameter for the threshold (or a very good automatic threshold)
 
-    :param im:
-    :param radius:
-    :return:
+    :param im: The input image which should be grey-valued
+    :param radius: The radius of the particles used by the LoG (Laplacian of Gaussian)
+    :return: [1,2]:
+        (1) A list with [x, y, radius] values,
+        (2) The smoothed image used as input to the Laplacian
     """
     circle_list = []
-    return circle_list
+    im_blur = filters.gaussian(im, sigma=radius)
+    im_lap = -cv.Laplacian(im_blur, cv.CV_64F)
+    im = img_as_float(im_lap)
+    centers = feature.peak_local_max(im, min_distance=radius, threshold_rel=0.05)
+    circle_list = np.zeros((centers.shape[0], 3),)
+    circle_list[:, 0] = centers[:, 1]
+    circle_list[:, 1] = centers[:, 0]
+    # circle_list = feature.blob_log(im_blur, max_sigma=(radius*3), num_sigma=radius, threshold=.1)
+    # blobs_log[:, 2] = blobs_log[:, 2] * sqrt(2)
+    circle_list[:, 2] = radius
+    circle_list = circle_list.tolist()
+
+    return circle_list, im_blur
 
 
-def detection(orig, method, saturation_perc, radius):
+def detection(orig, method, saturation_perc, radius, is_dark):
     """
     Detection of particles as centers and radii. Uses a specified method and does some pre-processing of the data.
 
@@ -98,6 +118,7 @@ def detection(orig, method, saturation_perc, radius):
     :param method: On of the valid methods: ['CHT', 'Laplace']
     :param saturation_perc: Saturation percentage
     :param radius: Expected radius
+    :param is_dark: Whether the appearence of the particles is dark or bright (1 or 0)
     :return: [circle_list, im_gray, im_norm, im_blur]
         circle_list:
     """
@@ -113,6 +134,8 @@ def detection(orig, method, saturation_perc, radius):
     else:
         im = np.copy(orig)
 
+    if is_dark:
+        im = np.invert(np.array(im, dtype=im.dtype))
     im_gray = np.copy(im)
 
     # Contrast stretching
