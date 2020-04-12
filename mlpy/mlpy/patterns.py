@@ -57,3 +57,4 @@ def compute_lindemann_parameter(circle_list, radius):
     lindemann_list = L.tolist()
 
     return lindemann_list
+

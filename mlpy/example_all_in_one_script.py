@@ -1,9 +1,14 @@
 """
-.. module:: project_documentation
-    :platform: OS X
-    :synopsis: module illustrating how to document python source code
+-------------------------------------------------------------------------
+EXAMPLE_OPEN_IMAGE
+-------------------------------------------------------------------------
+This is an example script for:
+  - reading and showing video data in Python.
+  - Detecting particles
+  - Showing circles on an image
+  - Lindemann parameter calculation TODO
 
-.. moduleauthor:: Patrick Kennedy <patkennedy79@gmail.com>
+.. moduleauthor:: Michael Barbier <michael.barbier@gmail.com>
 """
 
 # -------------------------------------------------------------------------
@@ -41,6 +46,7 @@ from scipy.spatial import distance
 import copy
 
 n_comment_dash = 80
+print(__doc__)
 # -------------------------------------------------------------------------
 
 

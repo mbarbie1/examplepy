@@ -81,7 +81,7 @@ def detection_cht(im, radius):
     return circle_list, im_blur
 
 
-def detection_laplace(im, radius):
+def detection_laplace(im, radius, threshold_rel):
     """
     Detect particles with a Laplace based spot detector
     (There are also blob detectors available in scikit-image but I was not successful in using them:
@@ -90,6 +90,7 @@ def detection_laplace(im, radius):
 
     :param im: The input image which should be grey-valued
     :param radius: The radius of the particles used by the LoG (Laplacian of Gaussian)
+    :param threshold_rel: threshold for Laplacian minimum values relative to maximal value
     :return: [1,2]:
         (1) A list with [x, y, radius] values,
         (2) The smoothed image used as input to the Laplacian
@@ -98,13 +99,14 @@ def detection_laplace(im, radius):
     im_blur = filters.gaussian(im, sigma=radius)
     im_lap = -cv.Laplacian(im_blur, cv.CV_64F)
     im = img_as_float(im_lap)
-    centers = feature.peak_local_max(im, min_distance=radius, threshold_rel=0.05)
+    centers = feature.peak_local_max(im, min_distance=radius, threshold_rel=threshold_rel)
     circle_list = np.zeros((centers.shape[0], 3),)
     circle_list[:, 0] = centers[:, 1]
     circle_list[:, 1] = centers[:, 0]
     # circle_list = feature.blob_log(im_blur, max_sigma=(radius*3), num_sigma=radius, threshold=.1)
     # blobs_log[:, 2] = blobs_log[:, 2] * sqrt(2)
     circle_list[:, 2] = radius
+    #circle_list[:, 3] = int
     circle_list = circle_list.tolist()
 
     return circle_list, im_blur
@@ -147,7 +149,8 @@ def detection(orig, method, saturation_perc, radius, is_dark):
     if method == "CHT":
         circle_list, im_blur = detection_cht(im_norm, radius)
     elif method == "Laplace":
-        circle_list, im_blur = detection_laplace(im_norm, radius)
+        threshold_rel = 0.05
+        circle_list, im_blur = detection_laplace(im_norm, radius, threshold_rel)
     else:
         circle_list = []
         im_blur = np.copy(im)
