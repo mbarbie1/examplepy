@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55e70bdd-968c-48d1-8a3c-146a64bc5117" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/examplepy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example_fft_artificial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="55e70bdd-968c-48d1-8a3c-146a64bc5117" name="Default Changelist" comment="Adding example for Fourier spectra, asymmetric BCs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,6 +195,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="435" y="126" width="1071" height="696" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586160070367">
