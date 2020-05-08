@@ -1,0 +1,47 @@
+[Image]
+	roi_x=0
+	roi_y=0
+	width=1280
+	height=1024
+	bit_mode=11:4
+	sensor_options=bin1x:subs1x
+	frame_count=1371
+	trigger_frame=0
+	start_frame=714
+	end_frame=2084
+	time_stamp=108:189:17:30:32.555291
+	comment=
+
+[Camera]
+	make=FASTEC
+	model=IL5SC81TBD
+	fpga_rev=0x80020011
+	software_version=2.2.11
+	mac_address=a4:1b:c0:00:04:00
+	camera_name=FASTEC-IL5-400
+	sensor_type=C5LA
+
+[Record]
+	fps=30
+	shutter_speed=2058
+	multi_slope=0:0
+	trigger_setting=0
+	sync_in=0x0
+	sync_out=0x0
+
+[Normalization]
+	red_balance=4096
+	blue_balance=4096
+	green_balance=4096
+	brightness=200
+	contrast=103
+	gamma=69
+	sensor_gain=100
+	red_gain=1.266
+	blue_gain=0.703
+	green_gain=1.0
+	red_matrix=[4096,0,0]
+	blue_matrix=[0,0,4096]
+	green_matrix=[0,4096,0]
+	raw=0
+	codec=MJPEG
