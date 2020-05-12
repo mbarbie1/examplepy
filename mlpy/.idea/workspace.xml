@@ -16,10 +16,18 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:mb" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55e70bdd-968c-48d1-8a3c-146a64bc5117" name="Default Changelist" comment="Adding example for Fourier spectra, asymmetric BCs" />
+    <list default="true" id="55e70bdd-968c-48d1-8a3c-146a64bc5117" name="Default Changelist" comment=".gitignore .idea folder">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +41,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="mb" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1XaFkTYJKg92911e9qdVgsAridb" />
@@ -164,11 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.example_fft_artificial" />
         <item itemvalue="Python.io" />
-        <item itemvalue="Python.example_particle_detection" />
         <item itemvalue="Python.example_particle_detection_laplacian" />
+        <item itemvalue="Python.example_particle_detection" />
         <item itemvalue="Python.example_open_image" />
+        <item itemvalue="Python.example_fft_artificial" />
       </list>
     </recent_temporary>
   </component>
@@ -183,6 +196,14 @@
       <option name="presentableId" value="Default" />
       <updated>1581276441997</updated>
     </task>
+    <task id="LOCAL-00001" summary=".gitignore .idea folder">
+      <created>1587205645879</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587205645879</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,12 +211,28 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="mb" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=".gitignore .idea folder" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore .idea folder" />
   </component>
   <component name="WindowStateProjectService">
     <state x="435" y="126" width="1071" height="696" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586160070367">
@@ -318,6 +355,10 @@
     <state x="295" y="151" key="SettingsEditor/0.23.1920.1003@0.23.1920.1003" timestamp="1583226297069" />
     <state x="295" y="152" key="SettingsEditor/0.23.1920.1010@0.23.1920.1010" timestamp="1585684346212" />
     <state x="295" y="150" key="SettingsEditor/0.23.1920.996@0.23.1920.996" timestamp="1586159811776" />
+    <state x="515" y="244" key="Vcs.Push.Dialog.v2" timestamp="1587205671963">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state x="515" y="244" key="Vcs.Push.Dialog.v2/0.23.1920.1006@0.23.1920.1006" timestamp="1587205671963" />
     <state x="614" y="358" key="com.intellij.ide.util.TipDialog" timestamp="1586155331056">
       <screen x="0" y="23" width="1920" height="997" />
     </state>
@@ -328,6 +369,14 @@
     <state x="614" y="354" key="com.intellij.ide.util.TipDialog/0.23.1920.986@0.23.1920.986" timestamp="1585285737773" />
     <state x="614" y="356" key="com.intellij.ide.util.TipDialog/0.23.1920.992@0.23.1920.992" timestamp="1585214651903" />
     <state x="614" y="358" key="com.intellij.ide.util.TipDialog/0.23.1920.997@0.23.1920.997" timestamp="1586155331056" />
+    <state x="748" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589270841485">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="748" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1589270841485" />
+    <state x="606" y="299" key="git4idea.merge.GitPullDialog" timestamp="1589270165952">
+      <screen x="0" y="23" width="1920" height="988" />
+    </state>
+    <state x="606" y="299" key="git4idea.merge.GitPullDialog/0.23.1920.988@0.23.1920.988" timestamp="1589270165952" />
     <state x="619" y="244" width="670" height="676" key="search.everywhere.popup" timestamp="1585289775571">
       <screen x="0" y="23" width="1920" height="989" />
     </state>
