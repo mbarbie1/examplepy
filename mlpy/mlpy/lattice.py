@@ -75,6 +75,8 @@ def image_lattice(rr, shape, dot_radius):
 def generate_lattice(a1, a2, angle, n1, n2, shift_x, shift_y):
     """
     Generates a lattice of coordinates on a period lattice with lattice parameters a1, a2, under an angle angle
+    TODO: incorrect boundary conditions, not all lattice points are there, take also extra border into account for
+    lattice points which are outside but when plotted with finite radius could be partially inside.
 
     :param a1: The lattice length parameter of the first basis vector (parallel with the x-axis)
     :param a2: The lattice length parameter second basis vector (under angle with the x-axis)
