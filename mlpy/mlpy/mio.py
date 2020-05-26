@@ -19,7 +19,6 @@ import sys
 import ffmpeg
 import json
 
-print(cv.__version__)
 n_comment_dash = 80
 # -------------------------------------------------------------------------
 

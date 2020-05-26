@@ -4,6 +4,8 @@
 # Idea IDE files
 .idea
 
+data/videos/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

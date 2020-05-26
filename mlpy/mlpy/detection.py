@@ -23,7 +23,6 @@ import sys
 import ffmpeg
 import json
 
-print(cv.__version__)
 n_comment_dash = 80
 # -------------------------------------------------------------------------
 
@@ -124,10 +123,10 @@ def detection(orig, method, saturation_perc, radius, is_dark):
     :return: [circle_list, im_gray, im_norm, im_blur]
         circle_list:
     """
-    print('-' * n_comment_dash)
-    print('Detect particles and return their centers and detected radius (if any) in a list')
-    print('-' * n_comment_dash)
-    print(' ')
+    #print('-' * n_comment_dash)
+    #print('Detect particles and return their centers and detected radius (if any) in a list')
+    #print('-' * n_comment_dash)
+    #print(' ')
 
     if orig.shape[-1] == 3:  # color image
         b, g, r = cv.split(orig)  # get b,g,r
